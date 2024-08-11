@@ -1,1 +1,1 @@
-worker: node newcodeton1.js
+worker: node newcodeton2.js
