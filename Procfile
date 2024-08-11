@@ -1,1 +1,1 @@
-web: node newcodeton1.js
+worker: node newcodeton1.js
