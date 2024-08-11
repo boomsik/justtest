@@ -1,0 +1,14 @@
+{
+    "dependencies": {
+        "axios": "^1.7.3",
+        "firebase": "^10.12.5",
+        "input": "^1.0.1",
+        "node-fetch": "^3.3.2",
+        "telegram": "^2.23.2",
+        "tonapi-sdk-js": "^1.0.15",
+        "tonweb": "^0.0.66"
+    },
+    "scripts": {
+        "start": "node newcodefire3.js"
+    }
+}
