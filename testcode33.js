@@ -56,7 +56,7 @@ const getChannelPosts = async (client, channelUsername) => {
     totalRequestCount++;
     try {
         const channel = await client.getEntity(channelUsername);
-        const result = await client.getMessages(channel, { limit: 210 }); // Увеличиваем лимит до 210 сообщений
+        const result = await client.getMessages(channel, { limit: 10 }); // Увеличиваем лимит до 210 сообщений
 
         if (result && result.length > 0) {
             return result.map((message) => {
