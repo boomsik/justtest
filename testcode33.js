@@ -159,7 +159,11 @@ const processChannelPosts = async (client, db) => {
     const posts = await getChannelPosts(client, channelUsername);
 
     for (const post of posts) {
-        if (post.text.toLowerCase().includes("stonks")) {
+        const postTextLower = post.text.toLowerCase();
+        if (
+            postTextLower.includes("stonks bot") &&
+            postTextLower.includes("launched on gaspump")
+        ) {
             const tokenInfo = extractTokenInfo(post.text);
 
             const exists = await checkTokenExists(db, tokenInfo.tokenAddress);
@@ -171,7 +175,7 @@ const processChannelPosts = async (client, db) => {
                     tokenInfo.walletInfo,
                     tokenInfo.botInfo
                 );
-                const message = `Найдено сообщение с 'stonks':\nНазвание токена: <code>${tokenInfo.tokenName}</code>\nАдрес токена: <code>${tokenInfo.tokenAddress}</code>\nИнформация о кошельке: ${tokenInfo.walletInfo}\nИнформация о боте: ${tokenInfo.botInfo}`;
+                const message = `Найдено сообщение с 'stonks bot' и 'launched on GasPump':\nНазвание токена: <code>${tokenInfo.tokenName}</code>\nАдрес токена: <code>${tokenInfo.tokenAddress}</code>\nИнформация о кошельке: ${tokenInfo.walletInfo}\nИнформация о боте: ${tokenInfo.botInfo}`;
                 console.log(message);
                 console.log("=========================");
                 await sendMessageToChannel(message);
